@@ -7,19 +7,22 @@ except ImportError:
 
 setup(
     name='djangular',
-    version='0.2.3',
+    version='0.2.5',
     description="A reusable app that provides better app integration with AngularJS.",
     long_description="""
-A reusable app that provides better app integration with Angular.  Djangular allows you to create Angular content per
-app, instead of creating a single massive Angular application inside of Django.  This allows you to selectively use
-apps per site, as well as create a consistent structure across all of your Django apps.
+A reusable app that provides better app integration with AngularJS.  Djangular
+allows you to create AngularJS content per app, instead of creating a single
+massive AngularJS application inside of Django.  This allows you to selectively
+use apps per site, as well as create a consistent structure across all of your
+Django apps.
 
-This is intended to be a Django version of the Angular-Seed project (https://github.com/angular/angular-seed).  The
-current mindset is to limit the amount of changes introduced by Djangular.
+This is intended to be a Django version of the Angular-Seed project
+(https://github.com/angular/angular-seed).  The current mindset is to limit the
+amount of changes introduced by Djangular.
 """,
     keywords='djangular django angular angularjs',
     license='Apache',
-    packages=['djangular'],
+    packages=['djangular', 'angular12'],
     include_package_data=True,
     author='Brian Montgomery',
     author_email='brianm@appliedsec.com',

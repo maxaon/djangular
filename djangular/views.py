@@ -1,8 +1,12 @@
-from django import template
-from django.shortcuts import render_to_response
+from django.views.generic.base import TemplateView
 
-def angular_module(request):
-    """
-    Create the djangular angular app, which includes the django app dependencies needed.
-    """
-    return render_to_response('app.js', context_instance=template.RequestContext(request), mimetype='text/javascript')
+
+class DjangularModuleTemplateView(TemplateView):
+    content_type = 'text/javascript'
+    template_name = 'djangular_module.js'
+    disable_csrf_headers = False
+
+    def get_context_data(self, **kwargs):
+        context = super(DjangularModuleTemplateView, self).get_context_data(**kwargs)
+        context['disable_csrf_headers'] = self.disable_csrf_headers
+        return context
