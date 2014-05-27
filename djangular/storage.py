@@ -16,11 +16,12 @@ class NamespacedAngularAppStorage(AppStaticStorage):
         Returns a static file storage if available in the given app.
         """
         # app is the actual app module
-        self.prefix = os.path.join(*(app.split('.')))
+        self.prefix = "/".join(['app'] + app.split('.'))
         super(NamespacedAngularAppStorage, self).__init__(app, *args, **kwargs)
 
     def path(self, name):
-        name = sub('^' + self.prefix + os.sep, '', name)
+        reg = '^' + self.prefix.replace("\\", "/") + r"\\?/?"
+        name = sub(reg, '', name)
         return super(NamespacedAngularAppStorage, self).path(name)
 
 
